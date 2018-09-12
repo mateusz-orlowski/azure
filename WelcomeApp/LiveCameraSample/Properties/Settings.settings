@@ -1,0 +1,49 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LiveCameraSample.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SettingsPanelVisibility" Type="System.Windows.Visibility" Scope="User">
+      <Value Profile="(Default)">Visible</Value>
+    </Setting>
+    <Setting Name="AnalysisInterval" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:03</Value>
+    </Setting>
+    <Setting Name="FaceAPICallCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="VisionAPICallCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="AutoStopEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AutoStopTime" Type="System.TimeSpan" Scope="Application">
+      <Value Profile="(Default)">00:05:00</Value>
+    </Setting>
+    <Setting Name="FaceAPIKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">55aef7d44d50423593425f2499484037</Value>
+    </Setting>
+    <Setting Name="VisionAPIKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">e33b0c676c9549b29bf29dabbe509c8e</Value>
+    </Setting>
+    <Setting Name="FaceAPIHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://westeurope.api.cognitive.microsoft.com/face/v1.0</Value>
+    </Setting>
+    <Setting Name="VisionAPIHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://westeurope.api.cognitive.microsoft.com/vision/v1.0</Value>
+    </Setting>
+    <Setting Name="TrainingStatus" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UploadStatus" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AtosFaceRecognition;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AtosFaceRecognition;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

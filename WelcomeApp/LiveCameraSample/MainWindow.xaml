@@ -1,0 +1,90 @@
+﻿<Window x:Class="LiveCameraSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:local="clr-namespace:LiveCameraSample"
+        mc:Ignorable="d"
+        Title="Who are you?" Height="1024" Width="1500"
+        Icon="./Data/ico.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0" Name="Main">
+            <StackPanel Orientation="Vertical"  Height="80" Name="ButtonBar">
+                <Button Content="Start Camera" Padding="5,5" Margin="5,5,248,5" Click="StartButton_Click"  />
+                <Button Content="Stop Camera" Padding="5,5" Margin="5,5,248,5" Click="StopButton_Click"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Height="60"  Name="ButtonBar2">
+                <TextBlock VerticalAlignment="Center" Margin="15,5,0,5" Text="Mode:" />
+                <ComboBox x:Name="ModeList" Width="100" Margin="5,18" Loaded="ModeList_Loaded" SelectionChanged="ModeList_SelectionChanged" />
+                <Button Content="Show/Hide Settings" Padding="5,0" Margin="0,18,5,18" Click="SettingsButton_Click" HorizontalAlignment="Right" />
+            </StackPanel>
+            <StackPanel Visibility="{Binding Source={StaticResource Settings}, Path=Default.SettingsPanelVisibility, Mode=TwoWay}" Name="SettingsPanel"  VerticalAlignment="Top">
+                <TextBlock Margin="5" Grid.Row="0" FontWeight="Bold" Text="Settings"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="204*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Margin="5" Grid.Row="5" Grid.Column="0" Text="API Call Interval:" />
+                    <TextBox   Margin="5" Grid.Row="5" Grid.Column="1" Text="{Binding Source={StaticResource Settings}, Path=Default.AnalysisInterval, Mode=TwoWay}" Grid.ColumnSpan="2" />
+                </Grid>
+                <TextBlock Margin="5,0,5,5">
+                    <Run Text="Face API calls made = "/><Run Text="{Binding Source={StaticResource Settings}, Path=Default.FaceAPICallCount}"/><LineBreak />
+                    <Run Text="Vision API calls made = "/><Run Text="{Binding Source={StaticResource Settings}, Path=Default.VisionAPICallCount}"/>
+                </TextBlock>
+                <CheckBox Margin="5" IsChecked="{Binding Source={StaticResource Settings}, Path=Default.AutoStopEnabled}" ContentStringFormat="Automatically stop after {0}" Content="{Binding Source={StaticResource Settings}, Path=Default.AutoStopTime}" />
+                <Button Margin="5,5,248,5" Padding="5,5" Content="Save" Click="SaveSettingsButton_Click" />
+                <Button Margin="5,5,248,5" Padding="5,5" Content="Upload files" Click="CreateDBButton_Click" />
+                <TextBlock Margin="5,0,5,5">
+                <Run Text="Upload status: "/>
+                <Run Text="{Binding Source={StaticResource Settings}, Path=Default.UploadStatus}"/>
+                </TextBlock>
+                <Button Margin="5,5,248,5" Padding="5,5" Content="Start training" Click="StartTrainingButton_Click" />
+                <TextBlock Margin="5,0,5,5">
+                <Run Text="Training status: "/>
+                <Run Text="{Binding Source={StaticResource Settings}, Path=Default.TrainingStatus}"/>
+                </TextBlock>
+            </StackPanel>
+            <Image x:Name="LeftImage" />
+        </StackPanel>
+        
+
+        
+        
+        <Image x:Name="RightImage" Margin="0,0,0,0" Panel.ZIndex="1" Grid.Column="1" />
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="640" />
+                <ColumnDefinition Width="1280*" />
+            </Grid.ColumnDefinitions>
+            
+            
+
+        </Grid>
+        <TextBlock Name="MessageArea" Margin="5,10,5,9" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="3" />
+        <TextBlock Name="DetailsArea" Margin="5,10,5,9" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20px" />
+    </Grid>
+</Window>
