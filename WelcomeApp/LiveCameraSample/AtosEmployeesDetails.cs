@@ -14,7 +14,7 @@ namespace LiveCameraSample
         {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
             {
-                // Define a t-SQL query string that has a parameter for orderID.
+                // Define a t-SQL query string that has a parameter for orderID.a
                 const string sql = "SELECT * FROM dbo.AtosEmployees WHERE UserId = @personId";
 
                 // Create a SqlCommand object.
