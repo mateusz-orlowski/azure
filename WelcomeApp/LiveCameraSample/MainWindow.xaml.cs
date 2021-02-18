@@ -483,7 +483,7 @@ namespace LiveCameraSample
         private async void CreateDBButton_Click(object sender, RoutedEventArgs e)
         {
             FaceRecognition fr = new FaceRecognition();
-            await fr.UpdatePerson("Person 31");
+            await fr.UpdatePerson("Person 3 Sabina");
         }
 
         private async void StartTrainingButton_Click(object sender, RoutedEventArgs e)
@@ -564,6 +564,12 @@ namespace LiveCameraSample
                 OpenCvSharp.Rect r = sortedClientRects[i];
                 sortedResultFaces[i].FaceRectangle = new FaceAPI.Contract.FaceRectangle { Left = r.Left, Top = r.Top, Width = r.Width, Height = r.Height };
             }
+        }
+
+        private async void UploadFacesButton_Click(object sender, RoutedEventArgs e)
+        {
+            FaceRecognition fr = new FaceRecognition();
+            await fr.UploadFaces();
         }
     }
 }

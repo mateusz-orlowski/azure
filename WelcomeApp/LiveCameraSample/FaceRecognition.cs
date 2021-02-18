@@ -46,23 +46,30 @@ namespace LiveCameraSample
             }
 
             var iterator = 0;
-            foreach (string imagePath in Directory.GetFiles("C:\\Temp\\Pics"))
+            foreach (string dir in Directory.GetDirectories("C:\\Temp\\Pics"))
             {
-                using (Stream s = File.OpenRead(imagePath))
+                var folderName = dir.Split('\\')[3];
+                CreatePersonResult person = await _faceClient.CreatePersonAsync(_groupId, "Person " + iterator++ + " " + folderName);
+                foreach (string imagePath in Directory.GetFiles(dir))
                 {
-                    try
+                    
+                    
+                    using (Stream s = File.OpenRead(imagePath))
                     {
-                        CreatePersonResult person = await _faceClient.CreatePersonAsync(_groupId, "Person " + iterator++);
-                        await Task.Delay(5000);
-                        Properties.Settings.Default.UploadStatus = String.Format("Uploading {0}: {1}", iterator, imagePath);
-                        
-                        await _faceClient.AddPersonFaceAsync(_groupId, person.PersonId, s);
+                        try
+                        {
+                            
+                            //await Task.Delay(5000);
+                            Properties.Settings.Default.UploadStatus = String.Format("Uploading {0}: {1}", iterator, imagePath);
+
+                            await _faceClient.AddPersonFaceAsync(_groupId, person.PersonId, s);
+                        }
+                        catch (FaceAPIException fae)
+                        {
+                            var finishedAt = "";
+                        }
+                        //await Task.Delay(5000);
                     }
-                    catch (FaceAPIException fae)
-                    {
-                        var finishedAt = "";
-                    }
-                    await Task.Delay(5000);
                 }
             }
         }
@@ -76,7 +83,7 @@ namespace LiveCameraSample
             _faceClient = new FaceAPI.FaceServiceClient(Properties.Settings.Default.FaceAPIKey, Properties.Settings.Default.FaceAPIHost);
             var groups = await _faceClient.ListPersonGroupsAsync();
 
-            foreach (string imagePath in Directory.GetFiles("C:\\Temp\\Pics\\Mateusz"))
+            foreach (string imagePath in Directory.GetFiles("C:\\Temp\\Pics\\Sabina2"))
             {
                 using (Stream s = File.OpenRead(imagePath))
                 {

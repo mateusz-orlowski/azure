@@ -63,10 +63,12 @@
                 <Run Text="{Binding Source={StaticResource Settings}, Path=Default.UploadStatus}"/>
                 </TextBlock>
                 <Button Margin="5,5,248,5" Padding="5,5" Content="Start training" Click="StartTrainingButton_Click" />
+                <Button Margin="5,5,248,5" Padding="5,5" Content="Initial faces upload" Click="UploadFacesButton_Click" />
                 <TextBlock Margin="5,0,5,5">
                 <Run Text="Training status: "/>
                 <Run Text="{Binding Source={StaticResource Settings}, Path=Default.TrainingStatus}"/>
                 </TextBlock>
+                
             </StackPanel>
             <Image x:Name="LeftImage" />
         </StackPanel>

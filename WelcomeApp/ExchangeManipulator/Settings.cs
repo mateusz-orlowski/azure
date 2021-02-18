@@ -8,6 +8,6 @@ namespace ExchangeManipulator
 {
     class Settings
     {
-        public const string Password = "9Tifseil23";
+        public const string Password = "4Tifseil23";
     }
 }
